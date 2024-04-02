@@ -16,15 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/landingpages', function () {
-    return view('landing-pages');
-});
-Route::get('personalweb-wahyu', function () {
-    return view('personalweb');
-});
-Route::get('personalwebadrian', function () {
-    return view('personalwebadrian');
-});
-Route::get('wahyu', function () {
+Route::get('/portofolio-wahyu', function () {
     return view('portofolio-wahyu');
 });
