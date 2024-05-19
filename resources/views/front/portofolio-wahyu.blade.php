@@ -4,21 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
+    <script src="https://cdn.tailwindcss.com"></script>
     @vite('resources/css/app.css')
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <title>Portofolio Wahyu</title>
+
+    <script>
+    tailwind.config = {
+      theme: {
+        container: {
+          center : true,
+          padding: '14px',
+        },
+        extend: {
+          colors: {
+            primary:'#1d4ed8',
+          },
+          letterSpacing: {
+          lebar: '.5em',
+          }
+        }
+      }
+    }
+  </script>
+
+    <title>Whyunrsdq | Portofolio</title>
 </head>
 <body class="bg-black text-white">
+ 
 {{-- Header Start --}}
 
 <nav class=" bg-black md:flex md:items-center md:justify-between w-full fixed">
   <div class="flex justify-between items-center">
     <a href="#home">
-      <img class="w-48 inline" src="img/logo.png" alt="">
+      <img class="w-48 inline" src="{{asset('img/logo.png')}}" alt="">
     </a>
     <span class=" inline text-5xl md:mb-50 cursor-pointer md:hidden mx-2">
       <ion-icon class="text-primary" name="menu" onclick="Menu(this)"></ion-icon>
@@ -63,7 +87,7 @@
             </div>
             <div class="w-full self-end px-16 lg:w-1/2">
                 <div class="mt-10 lg:mt-0">
-                    <img class="rounded-3xl" src="img/person.png" class="rounded-3xl max-w-full mx-auto">
+                    <img class="rounded-3xl" src="{{asset('img/person.png')}}" class="rounded-3xl max-w-full mx-auto">
                 </div>
             </div>
         </div>
@@ -73,7 +97,7 @@
 
 {{-- Service Start --}}
     
-<section id="service" class="min-h-screen w-full">
+<section id="service" class="w-full">
     <div class="text-center px-20 pt-32 pb-20">
       <h1 class="font-bold text-4xl">Ser<span class="text-primary">vice</span></h1>
     </div>
@@ -82,7 +106,7 @@
       <div class="shadow-lg shadow-blue-500 border border-primary text-center p-8 rounded-3xl bg-transparent">
         <div class="flex justify-center">
           <div class=" justify-center">
-        <img class="py-5 items-center " src="img/webdesign.png" alt="">
+        <img class="py-5 items-center " src="{{asset('img/webdesign.png')}}" alt="">
             </div>
       </div>
         <h3 class="text-3xl font-bold text-primary pb-5">Web Design</h3>
@@ -91,7 +115,7 @@
       <div class="shadow-lg shadow-blue-500 border border-primary text-center p-8 rounded-3xl bg-transparent">
         <div class="flex justify-center">
           <div class=" justify-center">
-        <img class="py-5" src="img/wpdeveloping.png" alt="">
+        <img class="py-5" src="{{asset('img/wpdeveloping.png')}}" alt="">
           </div>
       </div>
         <h3 class="text-3xl font-bold text-primary pb-5">WP Developing</h3>
@@ -100,7 +124,7 @@
       <div class="shadow-lg shadow-blue-500 border border-primary text-center p-8 rounded-3xl bg-transparent">
         <div class=" flex justify-center">
           <div class="justify-center">
-        <img class="py-5 " src="img/ux.png" alt="">
+        <img class="py-5 " src="{{asset('img/ux.png')}}" alt="">
           </div>
       </div>
         <h3 class="text-3xl font-bold text-primary pb-5">UI / UX</h3>
@@ -112,16 +136,16 @@
 {{-- Service End --}}
 
 {{-- Portofolio Start --}}
-<section id="portofolio" class="min-h-screen w-full">
+<section id="portofolio" class="w-full">
 <div class="text-center px-20 pt-32 pb-20">
       <h1 class="font-bold text-4xl">Recent <span class="text-primary">Project</span></h1>
     </div>
-    <div class="mx-auto">
+    <div class="mx-auto px-16">
     <div class="flex flex-wrap gap-10 mx-auto xl:w-[1000px] justify-center">
-      <img class="w-96" src="img/portofolio1.png" alt="">
-      <img class="w-96" src="img/portofolio2.png" alt="">
-      <img class="w-96" src="img/portofolio3.png" alt="">
-      <img class="w-96" src="img/portofolio4.png" alt="">
+      <img class="w-96" src="{{asset('img/portofolio1.png')}}" alt="">
+      <img class="w-96" src="{{asset('img/portofolio2.png')}}" alt="">
+      <img class="w-96" src="{{asset('img/portofolio3.png')}}" alt="">
+      <img class="w-96" src="{{asset('img/portofolio4.png')}}" alt="">
     </div>
     </div>
 </section>
@@ -134,7 +158,7 @@
         <div class="flex flex-wrap py-5">
           <div class="w-full lg:pl-60 self-end lg:w-1/2">
                 <div class="">
-                    <img width="250" height="250" src="img/about.png" class="max-w-full mx-auto">
+                    <img width="250" height="250" src="{{asset('img/about.png')}}" class="max-w-full mx-auto">
                 </div>
             </div>
             <div class="mb-10 lg:w-[575px] md:px-32 h-full self-center px-16 lg:px-0 lg:pr-36">
@@ -142,10 +166,13 @@
               <div class="justify-center flex lg:justify-start md:justify-center pt-10 lg:pt-0">
                 <h2 class="pr-5 pb-3 mb-5 text-4xl text-white font-bold md:text-3xl lg:text-6xl border-b-4 ">About<span class="text-primary"> Me</span></h2>
               </div>
+              {{-- @foreach ($abouts as $data) --}}
                 <p class="font-normal text-lg mb-2 leading-relaxed border-b-2 text-justify pb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum libero quod molestias sequi totam qui beatae quis cum dolorem, voluptas dignissimos aliquid natus inventore eveniet tenetur doloremque neque consectetur animi!</p>
+                {{-- <p class="font-normal text-lg mb-2 leading-relaxed border-b-2 text-justify pb-3">{{ $data->about }}</p>
+              @endforeach --}}
                 <div class="flex justify-between font-semibold p-0">
-                  <p class="items-center flex pb-0"><img class="mr-2" width="25" height="25" src="img/telephone.png" alt="">08123456789</p>
-                  <p class="items-center flex pb-0"><img class="mr-2" width="25" height="25" src="img/github.png" alt="">Whyunrsdq</p>
+                  <p class="items-center flex pb-0"><img class="mr-2" width="25" height="25" src="{{asset('img/telephone.png')}}" alt="">08123456789</p>
+                  <p class="items-center flex pb-0"><img class="mr-2" width="25" height="25" src="{{asset('img/github.png')}}" alt="">Whyunrsdq</p>
                 </div>
                 
             </div>
@@ -158,14 +185,33 @@
 
 {{-- Footer Start --}}
 
-<section id="contact" class="bg-blue-950 h-42 w-full">
-  <div class="">
-    <h5 class="text-center font-normal text-4xl pb-2 pt-5">Contact Me</h5>
+<section id="contact" class="bg-black h-42 w-full">
+  <div class="py-8 lg:py-10 px-20 mx-auto max-w-screen-md">
+      <h2 class="mb-4 text-4xl tracking-tight font-bold text-center text-white">Contact <span class="text-primary">Me</span></h2>
+      <form method='POST' class="space-y-8">
+        @csrf
+          <div>
+              <label for="text" class="block mb-2 text-sm font-medium text-white">Nama</label>
+              <input type="text" id="nama" name="nama" class="shadow-sm bg-gray-800 border border-gray-300 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="Nama..." value="{{ (isset($bukutamu)) ? $bukutamu->nama:"" }}" required>
+          </div>
+          <div>
+              <label for="email" class="block mb-2 text-sm font-medium text-white">Email</label>
+              <input type="email" id="email" name="email" class="block p-3 w-full text-sm text-white bg-gray-800 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="Email..." value="{{ (isset($bukutamu)) ? $bukutamu->email:"" }}" required>
+          </div>
+          <div class="sm:col-span-2">
+              <label for="pesan" class="block mb-2 text-sm font-medium text-white">Pesan</label>
+              <textarea id="pesan" rows="4" name="pesan" class="block p-2.5 w-full text-sm text-white bg-gray-800 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Pesan....." value="{{ (isset($bukutamu)) ? $bukutamu->pesan:"" }}"></textarea>
+          </div>
+          <button type="submit" class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-blue-800 sm:w-fit hover:bg-blue-900">Send message</button>
+      </form>
+  </div>
+  <div class="bg-blue-950 pt-5">
+    {{-- <h5 class="text-center font-normal text-4xl pb-2 pt-5">Social Media</h5> --}}
     <div class="flex justify-center gap-10 pt-5 pb-8">
-    <a href="https://web.facebook.com/Why.Exf"><img width="30" height="30" src="img/facebook.png" alt=""></a>
-    <a href="https://www.instagram.com/whynrsdq/"><img width="30" height="30" src="img/instagram.png" algt=""></a>
-    <a href="https://github.com/Whyunrsdq/"><img width="30" height="30" src="img/github.png" algt=""></a>
-    <a href="https://wa.me/62895360501188/"><img width="30" height="30" src="img/whatsapp.png" algt=""></a>
+    <a href="https://web.facebook.com/Why.Exf"><img width="30" height="30" src="{{asset('img/facebook.png')}}" alt=""></a>
+    <a href="https://www.instagram.com/whynrsdq/"><img width="30" height="30" src="{{asset('img/instagram.png')}}" algt=""></a>
+    <a href="https://github.com/Whyunrsdq/"><img width="30" height="30" src="{{asset('img/github.png')}}" algt=""></a>
+    <a href="https://wa.me/62895360501188/"><img width="30" height="30" src="{{asset('img/whatsapp.png')}}" algt=""></a>
     </div>
   </div>
     <div class="bg-blue-800">
@@ -176,11 +222,34 @@
 {{-- Footer End --}}
 
 <script>
+
+const swal = $('.swal').data('swal');
+
+        if(swal){
+            Swal.fire({
+                'title':'Success',
+                'text' : swal,
+                'icon': 'success',
+                'showConfirmButton':false,
+                'timer':2000
+            })
+        }
+
         function Menu(e) {
             let list = document.querySelector('ul');
             e.name === 'menu' ? (e.name = "close", list.classList.add('top-[87px]'), list.classList.add('opacity-100')) : (e.name = "menu", list.classList.remove('top-[87px]'), list.classList.remove('opacity-100'))
         }
     </script>
-
+   @if($message = Session::get('success'))
+    <script>
+        Swal.fire({
+            title: "Pesan Berhasil Terkirim",
+            //text: "{{ Session::get('success') }}",
+            // background: "#00C853"
+            // color: "#FAFAFA",
+            icon: "success"
+        });
+    </script>
+@endif
 </body>
 </html>
